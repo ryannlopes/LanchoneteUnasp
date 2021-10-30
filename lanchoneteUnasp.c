@@ -11,8 +11,11 @@ int main(){
         //COMEÇANDO UM NOVO PEDIDO
         printf("NOVO PEDIDO\n\n");
 
-        totalPedido=0;
+        totalPedido=0;//Toda vez que estiver um novo pedido ele será zerado
+        
+        fflush(stdin); //Limpando o buton do teclado
 
+        //Pegando o nome do cliente
         printf("Nome do cliente: ");
         scanf("%[^\n]s", nome);
 
@@ -26,7 +29,7 @@ int main(){
                 printf("4             X-Egg                  R$10.00\n");
                 printf("5             X-Frango               R$12.00\n");
                 printf("6             X-Tudo                 R$15.00\n");
-                printf("---------------------------------------------");
+                printf("--------------------------------------------\n");
                 printf("7             Coca-Cola 2L           R$12.00\n");
                 printf("8             Suco de Laranja 500ml  R$5.00\n");
                 printf("9             Sprite 2L              R$9.50\n");
@@ -35,8 +38,8 @@ int main(){
                 printf("Codigo do lanche: ");
                 scanf("%d", &cod);
 
-                //Validação do Código
-                if(cod!=1 && cod!=2 && cod!=3 && cod!=4 && cod!=5){
+                //Validação do Código invalidos
+                if(cod!=1 && cod!=2 && cod!=3 && cod!=4 && cod!=5 && cod!=6 && cod!=7 && cod!=8 && cod!=9 && cod!=10){
                     codInvalido=1;
                     printf("\nCodigo invalido\n\n");
                 }
@@ -51,7 +54,7 @@ int main(){
                 printf("Digite a quantidade: ");
                 scanf("%d", &qnt);
                 
-                //Validação da quantidade
+                //Validação da quantidade invalidas
                 if(qnt<1){
                     qntInvalida=1;
                     printf("\nQuantidade invalida\n\n");
@@ -61,7 +64,7 @@ int main(){
                 //Caso a quantidade for invalida ele vai repetir o a pergunta
             }while(qntInvalida==1);
 
-            //Calculado o valor total do pedido
+            //Calculado o valor de cada lanche com a quantidade
             switch(cod) {
                 case 1: totalPedido = totalPedido + (6.99*qnt); break;
                 case 2: totalPedido = totalPedido + (7.50*qnt); break;
@@ -79,7 +82,7 @@ int main(){
             do{
                 printf("Deseja pedir outro produto?\n");
                 printf("1 - Sim\n");
-                printf("0 - não\n\n");
+                printf("0 - Nao\n\n");
 
                 printf("Opcao: ");
                 scanf("%d", &novoLanche);
@@ -89,11 +92,40 @@ int main(){
                     printf("\nOpcao invalida:\n\n");
                 }
                 
-            //Se o usuario digita 1 ele vai quebrar o laço
+            //Fechamento do pedido
             }while(novoLanche != 0 && novoLanche!=1);
 
+            printf("\n");
 
+        }while(novoLanche==1);
+        //imprimindo Reccibo
+        printf("RECIBO\n");
+        printf("Nome do Cliente: %s\n", nome);
+        printf("Total a pagar: R$ %.2f\n", totalPedido);
 
-        }while(novoLanche = 1);
-    }while(novoPedido=1);
+        //Saldo do dia
+        saldoDia += totalPedido;
+
+        printf("\n");
+
+        //Pergunta se vai ter um novo pedido ou vai fechar o dia.
+        do{
+            printf("O que deseja fazer?\n");
+            printf("1 - Atender novo cliente\n");
+            printf("0 - Sair do Sistema\n\n");
+
+            printf("Opcao: ");
+            scanf("%d", &novoPedido);
+
+            if(novoPedido!=0 && novoPedido!=1){
+                printf("Opcao Invalida");
+            }
+        }while(novoPedido!=0 && novoPedido!=1);
+
+    }while(novoPedido==1);
+
+    //Exibindo o saldo do dia.
+    printf("SALDO DO DIA \nR$ %2.f\n", saldoDia);
+
+    return 0;
 }
