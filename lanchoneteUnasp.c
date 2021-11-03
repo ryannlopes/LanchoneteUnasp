@@ -9,6 +9,7 @@ int main(){
 
     do{
         //COMEÇANDO UM NOVO PEDIDO
+        system("cls");
         printf("NOVO PEDIDO\n\n");
 
         totalPedido=0;//Toda vez que estiver um novo pedido ele será zerado
@@ -19,32 +20,28 @@ int main(){
         //Nome
         printf("Nome do cliente: ");
         scanf("%[^\n]s", nome);
+        system("cls");
 
         do{
+            system("cls");
             //cardapio
             do{
-                printf("CODIGO        LANCHE/BEBIDA             PRECO\n");
-                printf("1             X-Burguer                 R$6.99\n");
-                printf("2             X-Salada                  R$7.50\n");
-                printf("3             X-Bacon                   R$9.00\n");
-                printf("4             X-Egg                     R$10.00\n");
-                printf("5             X-Frango                  R$12.00\n");
-                printf("6             X-Tudo                    R$15.00\n");
-                printf("7             Pastel de Carne           R$5.50\n");
-                printf("8             Pastel de Queijo          R$5.50\n");
-                printf("9             Pastel de Frnago          R$5.50\n");
-                printf("10            Hot-Dog                   R$6.00\n");
-                printf("------------------BEBIDAS---------------------\n");
-                printf("11            Coca-Cola 2L              R$12.00\n");
-                printf("12            Guarana Antarctica 2L     R$9.00\n");
-                printf("13            Sprite 2L                 R$9.00\n");
-                printf("14            Fanta Laranja 2L          R$8.50\n");
-                printf("15            Coca-Cola Lata 350ml      R$3.50\n");
-                printf("16            Fanta Laranja Lata 350ml  R$3.50\n");
-                printf("17            Sprite Lata 350ml         R$3.50\n");
-                printf("18            Suco de laranja 500ml     R$5.00\n");
+                printf("                      LANCHES                         |                       BEBIDAS                   \n");
+                printf("                                                      |                                                \n");
+                printf("  CODIGO        NOME                      PRECO       |  CODIGO        NOME                        PRECO\n");
+                printf("                                                      |                                                \n");
+                printf("  1             X-Burguer                 R$ 6.99     |  11            Coca-Cola 2L                R$ 12.00\n");
+                printf("  2             X-Salada                  R$ 7.50     |  12            Guarana Antarctica 2L       R$ 9.00\n");
+                printf("  3             X-Bacon                   R$ 9.00     |  13            Sprite 2L                   R$ 9.00\n");
+                printf("  4             X-Egg                     R$ 10.00    |  14            Fanta Laranja 2L            R$ 8.50\n");
+                printf("  5             X-Frango                  R$ 12.00    |  15            Coca-Cola Lata 350ml        R$ 3.50\n");
+                printf("  6             X-Tudo                    R$ 15.00    |  16            Fanta Laranja Lata 350ml    R$ 3.50\n");
+                printf("  7             Pastel de Carne           R$ 5.50     |  17            Sprite Lata 350ml           R$ 3.50\n");
+                printf("  8             Pastel de Queijo          R$ 5.50     |  18            Suco de laranja 500ml       R$ 5.00\n");
+                printf("  9             Pastel de Frango          R$ 5.50     |\n");
+                printf("  10            Hot-Dog                   R$ 6.00     |\n");
 
-                printf("Codigo do lanche: ");
+                printf("\nCodigo do lanche: ");
                 scanf("%d", &cod);
 
                 //Validação do Código invalidos
@@ -98,7 +95,7 @@ int main(){
 
             //Perguntado se vai add mais produtos
             do{
-                printf("Deseja pedir outro produto?\n");
+                printf("\nDeseja pedir outro produto?\n");
                 printf("1 - Sim\n");
                 printf("0 - Nao\n\n");
 
@@ -118,6 +115,7 @@ int main(){
         }while(novoLanche==1);
 
         //imprimindo Recibo
+        system("cls");
         printf("RECIBO\n");
         printf("Nome do Cliente: %s\n", nome);
         printf("Total a pagar: R$ %.2f\n", totalPedido);
@@ -144,7 +142,9 @@ int main(){
     }while(novoPedido==1);
 
     //Exibindo o saldo do dia.
-    printf("SALDO DO DIA \nR$ %.2f", saldoDia);
+    system("cls");
+    printf("SALDO DO DIA \n\n-> R$ %.2f", saldoDia);
+    printf("\n");
 
     return 0;
 }
