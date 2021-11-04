@@ -5,7 +5,7 @@ void condicoesCompra();
 
 int main(){
 
-    int cod, qnt, novoPedido, novoLanche, codInvalido, qntInvalida, quantPedidos, opcaoEntRet;
+    int cod, qnt, novoPedido, novoLanche, codInvalido, qntInvalida, quantPedidos, opcaoEntRet, contadorPedido = 0;
     char nome[20], end[30];
     float saldoDia=0, totalPedido, taxaEntrega = 7.50, desconto;
 
@@ -17,6 +17,7 @@ int main(){
         totalPedido = 0;//Toda vez que estiver um novo pedido ele será zerado
         quantPedidos = 0;
         opcaoEntRet = 0;
+        contadorPedido++;
         
         fflush(stdin); //Limpando o buton do teclado
 
@@ -151,9 +152,11 @@ int main(){
 
         //imprimindo Recibo
         system("cls");
-        printf("______RECIBO______\n\n");
-        printf("Nome do Cliente: %s\n", nome);
-        printf("%d\n", quantPedidos);
+        printf("***************************************************\n");
+        printf("                    RECIBO - N %d \n", contadorPedido);
+        printf("***************************************************\n\n");
+        printf("Nome do cliente: %s\n", nome);
+        printf("Total de unidades: %d\n", quantPedidos);
         if(opcaoEntRet == 1)
         {
             printf("Endereco: %s\n", end);
