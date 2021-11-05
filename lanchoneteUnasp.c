@@ -1,21 +1,26 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 void condicoesCompra();
 
 int main(){
 
     int cod, qnt, novoPedido, novoLanche, codInvalido, qntInvalida, quantPedidos, opcaoEntRet, contadorPedido = 0;
-    int p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18;
-    int qnt1=0, qnt2=0, qnt3=0, qnt4=0, qnt5=0, qnt6=0, qnt7=0, qnt8=0, qnt9=0, qnt10=0, qnt11=0, qnt12=0, qnt13=0, qnt14=0, qnt15, 
-    qnt16=0, qnt17=0, qnt18=0;
     char nome[20], end[45], numEnd[20];
-    float saldoDia = 0, totalPedido, taxaEntrega = 7.50, desconto;
+    float saldoDia = 0, totalPedido, taxaEntrega = 7.50, desconto;  
 
+    printf("**************** BEM-VINDO ***************");
+    printf("\nPressione ENTER para iniciar o sistema...");
+    getchar();
     do{
+        system("cls");
+        int p1=0, p2=0, p3=0, p4=0, p5=0, p6=0, p7=0, p8=0, p9=0, p10=0, p11=0, p12=0, p13=0, p14=0, p15=0, p16=0, p17=0, p18=0;
+        int qnt1=0, qnt2=0, qnt3=0, qnt4=0, qnt5=0, qnt6=0, qnt7=0, qnt8=0, qnt9=0, qnt10=0, qnt11=0, qnt12=0, qnt13=0, qnt14=0, qnt15=0, 
+            qnt16=0, qnt17=0, qnt18=0;
         //COMEÇANDO UM NOVO PEDIDO
         system("cls");
-        printf("NOVO PEDIDO\n\n");
+        printf("**** NOVO PEDIDO ****\n\n");
 
         contadorPedido++;
         totalPedido = 0;//Toda vez que estiver um novo pedido ele será zerado
@@ -26,7 +31,7 @@ int main(){
 
         //Pegando o dados do cliente
         //Nome
-        printf("Nome do cliente: ");
+        printf(" Nome do cliente: ");
         scanf("%[^\n]s", nome);
         system("cls");
 
@@ -36,7 +41,7 @@ int main(){
             do{
                 printf("                      LANCHES                         |                       BEBIDAS                   \n");
                 printf("                                                      |                                                 \n");
-                printf("  CODIGO        NOME                      PRECO       |  CODIGO        NOME                        PRECO\n");
+                printf("  CODIGO        DESCRICAO                 PRECO       |  CODIGO        DESCRICAO                   PRECO\n");
                 printf("                                                      |                                                 \n");
                 printf("  1             X-Burguer                 R$ 6.99     |  11            Coca-Cola 2L                R$ 12.00\n");
                 printf("  2             X-Salada                  R$ 7.50     |  12            Guarana Antarctica 2L       R$ 9.00\n");
@@ -49,7 +54,7 @@ int main(){
                 printf("  9             Pastel de Frango          R$ 5.50     |\n");
                 printf("  10            Hot-Dog                   R$ 6.00     |\n");
 
-                printf("\nCodigo do lanche: ");
+                printf("\nCodigo: ");
                 scanf("%d", &cod);
 
                 //Validação do Código invalidos
@@ -123,7 +128,8 @@ int main(){
         system("cls");
         if(quantPedidos >= 5)
         {
-            printf("PARABENS!!!\nPOR PEDIR 5 OU MAIS UNIDADES, VOCE GANHOU 10%% DE DESCONTO!!\n\n");
+            printf(" *********************** PARABENS!!! ************************\n");
+            printf(" POR PEDIR 5 OU MAIS UNIDADES, VOCE GANHOU 10%% DE DESCONTO!!\n\n");
             system("pause");
             system("cls");
         }
@@ -131,8 +137,8 @@ int main(){
         do
         {
             printf("Entrega ou Retirada?\n\n");
-            printf("1 - Entrega\n");
-            printf("0 - Retirada\n\n");
+            printf("\t1 - Entrega\n");
+            printf("\t0 - Retirada\n\n");
 
             printf("Opcao: ");
             scanf("%d", &opcaoEntRet);
@@ -155,11 +161,26 @@ int main(){
             
         }while(opcaoEntRet != 0 && opcaoEntRet!=1);
 
+
+        struct tm *data_hora_atual; //ponteiro para struct que armazena data e hora
+        time_t segundos; //variável do tipo time_t para armazenar o tempo em segundos
+        time(&segundos); //obtendo o tempo em segundos
+        data_hora_atual = localtime(&segundos);//para converter de segundos para o tempo local  //utilizamos a função localtime
+
         //imprimindo Recibo
         system("cls");
         printf("***************************************************\n");
         printf("                    RECIBO - N %d \n", contadorPedido);
-        printf("***************************************************\n\n");
+        printf("***************************************************\n");
+
+        printf("\n %d/", data_hora_atual->tm_mday); //dia
+        printf("%d/",data_hora_atual->tm_mon+1); //mês
+        printf("%d",data_hora_atual->tm_year+1900); //ano
+        
+        printf("  %d:",data_hora_atual->tm_hour);//hora   
+        printf("%d:",data_hora_atual->tm_min);//minuto
+        printf("%d\n\n",data_hora_atual->tm_sec);//segundo
+
         printf(" Nome do cliente: %s\n", nome);
         if(opcaoEntRet == 1)
         {
@@ -190,25 +211,24 @@ int main(){
         if(p17 == 1){printf("\n x%d      Sprite Lata 350ml                R$ 3.50", qnt17);}
         if(p18 == 1){printf("\n x%d      Suco de laranja 500ml            R$ 5.00", qnt18);}
         printf("\n---------------------------------------------------");
-        printf("\n\n TOTAL:                                   R$ %.2f\n", totalPedido);
 
+        printf("\n Subtotal                                 R$ %.2f\n", totalPedido);
+        if(opcaoEntRet == 1)
+        {
+            totalPedido = totalPedido + taxaEntrega;
+            printf(" Taxa de entrega                          R$ %.2f\n", taxaEntrega);
+        }
         if(quantPedidos >= 5)
         {   
             desconto = totalPedido * 0.1;
             totalPedido = totalPedido - desconto;
-            printf(" TOTAL (com 10%% desconto):                R$ %.2f\n", totalPedido);
+            printf(" Desconto 10%%                           - R$ %.2f\n", desconto);
         }
-
-        if(opcaoEntRet == 1)
-        {
-            totalPedido = totalPedido + taxaEntrega;
-            printf(" TOTAL + TAXA DE ENTREGA (R$ 7,50):       R$ %.2f\n", totalPedido);
-        }
+        printf("\n TOTAL                                    R$ %.2f\n", totalPedido);
 
         printf("\n");
         system("pause");
         
-            
         //Saldo do dia
         saldoDia += totalPedido;
 
@@ -235,6 +255,7 @@ int main(){
     system("cls");
     printf("SALDO DO DIA \n\n-> R$ %.2f", saldoDia);
     printf("\n");
+    system("pause");
 
     return 0;
 }
