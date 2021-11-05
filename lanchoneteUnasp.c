@@ -160,23 +160,24 @@ int main(){
             }
             
         }while(opcaoEntRet != 0 && opcaoEntRet!=1);
-
-
+       
         struct tm *data_hora_atual; //ponteiro para struct que armazena data e hora
         time_t segundos; //variável do tipo time_t para armazenar o tempo em segundos
         time(&segundos); //obtendo o tempo em segundos
-        data_hora_atual = localtime(&segundos);//para converter de segundos para o tempo local  //utilizamos a função localtime
+        data_hora_atual = localtime(&segundos);//para converter de segundos para o tempo local, utilizamos a função localtime
 
         //imprimindo Recibo
         system("cls");
         printf("***************************************************\n");
         printf("                    RECIBO - N %d \n", contadorPedido);
         printf("***************************************************\n");
-
+        
+        //data
         printf("\n %d/", data_hora_atual->tm_mday); //dia
         printf("%d/",data_hora_atual->tm_mon+1); //mês
         printf("%d",data_hora_atual->tm_year+1900); //ano
-        
+           
+        //hora
         printf("  %d:",data_hora_atual->tm_hour);//hora   
         printf("%d:",data_hora_atual->tm_min);//minuto
         printf("%d\n\n",data_hora_atual->tm_sec);//segundo
@@ -211,20 +212,20 @@ int main(){
         if(p17 == 1){printf("\n x%d      Sprite Lata 350ml                R$ 3.50", qnt17);}
         if(p18 == 1){printf("\n x%d      Suco de laranja 500ml            R$ 5.00", qnt18);}
         printf("\n---------------------------------------------------");
-
-        printf("\n Subtotal                                 R$ %.2f\n", totalPedido);
+        
+        printf("\n Subtotal                                 R$ %.2f\n", totalPedido);//subtotal
         if(opcaoEntRet == 1)
         {
             totalPedido = totalPedido + taxaEntrega;
-            printf(" Taxa de entrega                          R$ %.2f\n", taxaEntrega);
+            printf(" Taxa de entrega                          R$ %.2f\n", taxaEntrega);//taxa de entrega
         }
         if(quantPedidos >= 5)
         {   
             desconto = totalPedido * 0.1;
             totalPedido = totalPedido - desconto;
-            printf(" Desconto 10%%                           - R$ %.2f\n", desconto);
+            printf(" Desconto 10%%                           - R$ %.2f\n", desconto);//desconto
         }
-        printf("\n TOTAL                                    R$ %.2f\n", totalPedido);
+        printf("\n TOTAL                                    R$ %.2f\n", totalPedido);//total
 
         printf("\n");
         system("pause");
