@@ -6,6 +6,8 @@ void condicoesCompra();
 
 int main(){
 
+    FILE *recibo;
+
     int cod, qnt, novoPedido, novoLanche, codInvalido, qntInvalida, quantPedidos, opcaoEntRet, contadorPedido = 0;
     char nome[20], end[45], numEnd[20];
     float saldoDia = 0, totalPedido, taxaEntrega = 7.50, desconto;  
@@ -226,6 +228,68 @@ int main(){
             printf(" Desconto 10%%                           - R$ %.2f\n", desconto);//desconto
         }
         printf("\n TOTAL                                    R$ %.2f\n", totalPedido);//total
+
+        //Iprimindo o Recibo em um arquivo txt
+        recibo = fopen("recibo.txt", "a");
+        fprintf(recibo,"/n");
+        fprintf(recibo,"***************************************************\n");
+        fprintf(recibo,"                    RECIBO - N %d \n", contadorPedido);
+        fprintf(recibo,"***************************************************\n");
+        //data
+        fprintf(recibo,"\n %d/", data_hora_atual->tm_mday); //dia
+        fprintf(recibo,"%d/",data_hora_atual->tm_mon+1); //mês
+        fprintf(recibo,"%d",data_hora_atual->tm_year+1900); //ano
+           
+        //hora
+        fprintf(recibo,"  %d:",data_hora_atual->tm_hour);//hora   
+        fprintf(recibo,"%d:",data_hora_atual->tm_min);//minuto
+        fprintf(recibo,"%d\n\n",data_hora_atual->tm_sec);//segundo
+
+        fprintf(recibo," Nome do cliente: %s\n", nome);
+        if(opcaoEntRet == 1)
+        {
+            fprintf(recibo," Endereco: %s\n", end);
+            fprintf(recibo," N: %s\n", numEnd);
+        }
+        fprintf(recibo," Total de unidades: %d\n", quantPedidos);
+        
+        fprintf(recibo,"\n---------------------------------------------------");
+        fprintf(recibo,"\n QTDE    DESCRICAO                        VALOR UN.");
+        fprintf(recibo,"\n---------------------------------------------------");
+        if(p1 == 1){fprintf(recibo,"\n x%d      X-Burguer                        R$ 6.99", qnt1);}
+        if(p2 == 1){fprintf(recibo,"\n x%d      X-Salada                         R$ 7.50", qnt2);}
+        if(p3 == 1){fprintf(recibo,"\n x%d      X-Bacon                          R$ 9.00", qnt3);}
+        if(p4 == 1){fprintf(recibo,"\n x%d      X-Egg                            R$ 10.00", qnt4);}
+        if(p5 == 1){fprintf(recibo,"\n x%d      X-Frango                         R$ 12.00", qnt5);}
+        if(p6 == 1){fprintf(recibo,"\n x%d      X-Tudo                           R$ 15.00", qnt6);}
+        if(p7 == 1){fprintf(recibo,"\n x%d      Pastel de Carne                  R$ 5.50", qnt7);}
+        if(p8 == 1){fprintf(recibo,"\n x%d      Pastel de Queijo                 R$ 5.50", qnt8);}
+        if(p9 == 1){fprintf(recibo,"\n x%d      Pastel de Frango                 R$ 5.50", qnt9);}
+        if(p10 == 1){fprintf(recibo,"\n x%d      Hot-Dog                          R$ 6.00", qnt10);}
+        if(p11 == 1){fprintf(recibo,"\n x%d      Coca-Cola 2L                     R$ 12.00", qnt11);}
+        if(p12 == 1){fprintf(recibo,"\n x%d      Guarana Antarctica 2L            R$ 9.00", qnt12);}
+        if(p13 == 1){fprintf(recibo,"\n x%d      Sprite 2L                        R$ 9.00", qnt13);}
+        if(p14 == 1){fprintf(recibo,"\n x%d      Fanta Laranja 2L                 R$ 8.50", qnt14);}
+        if(p15 == 1){fprintf(recibo,"\n x%d      Coca-Cola Lata 350ml             R$ 3.50", qnt15);}
+        if(p16 == 1){fprintf(recibo,"\n x%d      Fanta Laranja Lata 350ml         R$ 3.50", qnt16);}
+        if(p17 == 1){fprintf(recibo,"\n x%d      Sprite Lata 350ml                R$ 3.50", qnt17);}
+        if(p18 == 1){fprintf(recibo,"\n x%d      Suco de laranja 500ml            R$ 5.00", qnt18);}
+        fprintf(recibo,"\n---------------------------------------------------");
+        
+        fprintf(recibo,"\n Subtotal                                 R$ %.2f\n", totalPedido);//subtotal
+        if(opcaoEntRet == 1)
+        {
+            totalPedido = totalPedido + taxaEntrega;
+            fprintf(recibo," Taxa de entrega                          R$ %.2f\n", taxaEntrega);//taxa de entrega
+        }
+        if(quantPedidos >= 5)
+        {   
+            desconto = totalPedido * 0.1;
+            totalPedido = totalPedido - desconto;
+            fprintf(recibo," Desconto 10%%                           - R$ %.2f\n", desconto);//desconto
+        }
+        fprintf(recibo,"\n TOTAL                                    R$ %.2f\n", totalPedido);//total
+        fclose(recibo);
 
         printf("\n");
         system("pause");
