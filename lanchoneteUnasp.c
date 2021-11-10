@@ -230,7 +230,7 @@ int main(){
         printf("\n TOTAL                                    R$ %.2f\n", totalPedido);//total
 
         //Iprimindo o Recibo em um arquivo txt
-        recibo = fopen("recibo.txt", "a");
+        recibo = fopen("recibo.txt", "w");
         fprintf(recibo,"/n");
         fprintf(recibo,"***************************************************\n");
         fprintf(recibo,"                    RECIBO - N %d \n", contadorPedido);
