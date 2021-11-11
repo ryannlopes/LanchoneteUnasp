@@ -14,6 +14,34 @@ int main(){
 
     printf("**************** BEM-VINDO ***************");
     printf("\nPressione ENTER para iniciar o sistema...");
+    printf("                                                  \n");
+    printf("                  ````........``                  \n");
+    printf("           `..-:::::::::/+++++++///:-.`           \n");
+    printf("        .-:::////////////+++++++++++++//:.`       \n");
+    printf("     `-::////////////////+++++++++++++++++/-`    \n");
+    printf("    .:///////////////////+++++++++++++++++++/.    \n");
+    printf("   `:////////////////////+++++++++++++++++++++.   \n");
+    printf("   -/////////////////////+++++++++++++++++++++/   \n");
+    printf("   -/////////////////////+++++++++++++++++++++:   \n");
+    printf("   `ossssssssssssssssssssyyyyyyyyyyyyyyyyyyyyy`   \n");
+    printf("  /yhhhhhhhhhhhhhhhhhhhhhdddyyyyyddhyyyyydddddh/  \n");
+    printf(" -hhhhhhhhhhhhhhhhhhhhhhhdddhyyyhdddyyyyhddddddd- \n");
+    printf(" :hhhhhhhhhhhhhhhhhhhhhhhhdddddddhhddhhdddhhdddd: \n");
+    printf("  sso++++oyyso++++oyyso++++oyhyo++++oyhys++++oys` \n");
+    printf("./++oossoo+++oossoo+++oossoo+++oossoo+++oossoo++/.\n");
+    printf("+oosssyysssssssyysssssssyyyssssssyyyssssssyyyssoo+\n");
+    printf("`+yyhhhhhhyyyhhhhhhyyyhhhddhhhhhddddhhhhhddddhyy+.\n");
+    printf(" -hhhhhhhhhhhhhhhhhhhhhhhddddddddddddddddddddddd: \n");
+    printf("  ohhhhhhhhhhhhhhhhhhhhhhddddddddddddddddddddddo` \n");
+    printf("   -+++++++++++++++++++++ooooooooooooooooooooo-`  \n");
+    printf("   .::::-.....-:-.....-:://///////////////////-   \n");
+    printf("   ://///-....://-...-///+++++++++++++++++++++/   \n");
+    printf("   ://///-....://:::::///+++++++++++++++++++++/   \n");
+    printf("   :::::::-..-::::::::::/+++++++++++++++++++++/   \n");
+    printf("   `..........................................`   \n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
     getchar();
     do{
         system("cls");
@@ -63,7 +91,11 @@ int main(){
                 if(cod!=1 && cod!=2 && cod!=3 && cod!=4 && cod!=5 && cod!=6 && cod!=7 && cod!=8 && cod!=9 && cod!=10 && 
                 cod!=11 && cod!=12 && cod!=13 && cod!=14 && cod!=15 && cod!=16 && cod!=17 && cod!=18){
                     codInvalido=1;
+
+                    system ("cls");
                     printf("\nCodigo invalido\n\n");
+                    system("pause");
+                    system("cls");
                 }
                 else{
                     codInvalido=0;
