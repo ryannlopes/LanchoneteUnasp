@@ -1,21 +1,21 @@
-/n***************************************************
-                    RECIBO - N 1 
+***************************************************
+                    RECIBO - N 2 
 ***************************************************
 
- 10/11/2021  20:46:11
+ 12/11/2021  11:18:50
 
- Nome do cliente: Ryan Lopes
- Endereco: Rua Pastor Hugo Geguembauer
- N: 264
+ Nome do cliente: Guilherme Gomes
+ Endereco: Rua MilAo
+ N: 51
  Total de unidades: 3
 
 ---------------------------------------------------
  QTDE    DESCRICAO                        VALOR UN.
 ---------------------------------------------------
- x2      X-Salada                         R$ 7.50
- x1      Sprite 2L                        R$ 9.00
+ x2      X-Bacon                          R$ 9.00
+ x1      Coca-Cola 2L                     R$ 12.00
 ---------------------------------------------------
- Subtotal                                 R$ 31.50
+ Subtotal                                 R$ 37.50
  Taxa de entrega                          R$ 7.50
 
- TOTAL                                    R$ 39.00
+ TOTAL                                    R$ 45.00
