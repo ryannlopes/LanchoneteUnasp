@@ -8,7 +8,7 @@ No final, deverá ser exibido o recibo do pedido do cliente, contendo o seu nome
 
 O código 0 finaliza o pedido de cada cliente. Quando não existirem mais clientes para serem atendidos e o administrador desejar encerrar o sistema, antes de sair, o programa deverá exibir o valor total que foi recebido durante o dia.
 
-### Tabela de Pedidos
+### Tabela de Produtos
 
 | CÓDIGO    |       DESCRIÇÃO                   |  PREÇO  |
 | ----------| --------------------------------- | ------- |
@@ -31,7 +31,7 @@ O código 0 finaliza o pedido de cada cliente. Quando não existirem mais client
 |     17    |     Sprite Lata 350ml             | R$ 3.50 |
 |     18    |     Suco de laranja 500ml         | R$ 5.00 |
 
-### Recibo
+### Exemplo do Recibo
 
 ![Exemplo_Recibo](https://user-images.githubusercontent.com/61668167/141981753-7beea229-214c-41ea-90e5-411d00560623.png)
 
