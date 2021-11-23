@@ -35,6 +35,6 @@ O código 0 finaliza o pedido de cada cliente. Quando não existirem mais client
 
 ![Exemplo_Recibo](https://user-images.githubusercontent.com/61668167/141981753-7beea229-214c-41ea-90e5-411d00560623.png)
 
-Desenvolvedores: Ryan Lopes, Guilherme Gomes, Gabriel Michelan, Rodrgo Maganhoto.
+Desenvolvedores: Ryan Lopes, Guilherme Gomes, Gabriel Michelan, Rodrigo Maganhoto.
 
 
