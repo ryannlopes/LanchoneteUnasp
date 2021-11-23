@@ -1,19 +1,18 @@
 /n***************************************************
-                    RECIBO - N 2 
+                    RECIBO - N 1 
 ***************************************************
 
- 23/11/2021  10:41:56
+ 23/11/2021  11:11:32
 
- Nome do cliente: Guilherme Gomes
- CPF/CNPJ: 345321222
- Total de unidades: 2
+ Nome do cliente: 1
+ CPF/CNPJ: 1
+ Total de unidades: 1
 
 ---------------------------------------------------
  QTDE    DESCRIÇÃO                        VALOR UN.
 ---------------------------------------------------
- x1      Hot-Dog                          R$ 6.00
- x1      Suco de laranja 500ml            R$ 5.00
+ x1      X-Burguer                        R$ 6.99
 ---------------------------------------------------
- Subtotal                                 R$ 11,00
+ Subtotal                                 R$ 6,99
 
- TOTAL                                    R$ 11,00
+ TOTAL                                    R$ 6,99
