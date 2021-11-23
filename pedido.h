@@ -1,37 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <locale.h>
 
 int pedido()
 {
     FILE *recibo;
     int cod, qnt, novoPedido, novoLanche, codInvalido, qntInvalida, quantPedidos, opcaoEntRet, contadorPedido = 0;
-    char nome[20], end[45], numEnd[20];
+    char nome[20], end[45], numEnd[20], cpf[14];
     float saldoDia = 0, totalPedido, taxaEntrega = 7.50, desconto;
+
+    setlocale(LC_ALL, "Portuguese");
+
     do
     {
         system("cls");
         int p1 = 0, p2 = 0, p3 = 0, p4 = 0, p5 = 0, p6 = 0, p7 = 0, p8 = 0, p9 = 0, p10 = 0, p11 = 0, p12 = 0, p13 = 0, p14 = 0, p15 = 0, p16 = 0, p17 = 0, p18 = 0;
         int qnt1 = 0, qnt2 = 0, qnt3 = 0, qnt4 = 0, qnt5 = 0, qnt6 = 0, qnt7 = 0, qnt8 = 0, qnt9 = 0, qnt10 = 0, qnt11 = 0, qnt12 = 0, qnt13 = 0, qnt14 = 0, qnt15 = 0,
             qnt16 = 0, qnt17 = 0, qnt18 = 0;
-        //COMEÃ‡ANDO UM NOVO PEDIDO
+        //COMEÇANDO UM NOVO PEDIDO
         system("cls");
         printf("**** NOVO PEDIDO ****\n\n");
 
         contadorPedido++;
-        totalPedido = 0; //Toda vez que estiver um novo pedido ele serÃ¡ zerado
+        totalPedido = 0; //Toda vez que estiver um novo pedido ele será zerado
         quantPedidos = 0;
         opcaoEntRet = 0;
 
         fflush(stdin); //Limpando o buton do teclado
 
         //Pegando o dados do cliente
+        //CPF/CNPJ
+        printf("Digite o CPF/CNPJ: ");
+        fflush(stdin);
+        scanf("%[^\n]s", cpf);
+        
+		system("cls");
         //Nome
-        printf(" Nome do cliente: ");
+        printf("Nome do cliente: ");
+        fflush(stdin);
         scanf("%[^\n]s", nome);
         system("cls");
 
-        do
+        do //Pedido
         {
             system("cls");
             //cardapio
@@ -39,7 +50,7 @@ int pedido()
             {
                 printf("                      LANCHES                         |                       BEBIDAS                   \n");
                 printf("                                                      |                                                 \n");
-                printf("  CODIGO        DESCRICAO                 PRECO       |  CODIGO        DESCRICAO                   PRECO\n");
+                printf("  CÓDIGO        DESCRIÇÃO                 PREÇO       |  CÓDIGO        DESCRIÇÃO                   PREÇO\n");
                 printf("                                                      |                                                 \n");
                 printf("  1             X-Burguer                 R$ 6.99     |  11            Coca-Cola 2L                R$ 12.00\n");
                 printf("  2             X-Salada                  R$ 7.50     |  12            Guarana Antarctica 2L       R$ 9.00\n");
@@ -52,17 +63,17 @@ int pedido()
                 printf("  9             Pastel de Frango          R$ 5.50     |\n");
                 printf("  10            Hot-Dog                   R$ 6.00     |\n");
 
-                printf("\nCodigo: ");
+                printf("\nCódigo: ");
                 scanf("%d", &cod);
 
-                //ValidaÃ§Ã£o do CÃ³digo invalidos
+                //Validação do Código invalidos
                 if (cod != 1 && cod != 2 && cod != 3 && cod != 4 && cod != 5 && cod != 6 && cod != 7 && cod != 8 && cod != 9 && cod != 10 &&
                     cod != 11 && cod != 12 && cod != 13 && cod != 14 && cod != 15 && cod != 16 && cod != 17 && cod != 18)
                 {
                     codInvalido = 1;
 
                     system("cls");
-                    printf("\nCodigo invalido\n\n");
+                    printf("\nCódigo invalido\n\n");
                     system("pause");
                     system("cls");
                 }
@@ -70,7 +81,7 @@ int pedido()
                 {
                     codInvalido = 0;
                 }
-                //Repetindo o laÃ§o caso o cod seja invalido
+                //Repetindo o laço caso o cod seja invalido
             } while (codInvalido == 1);
 
             //Campo de digitar a quantidade
@@ -79,7 +90,7 @@ int pedido()
                 printf("Digite a quantidade: ");
                 scanf("%d", &qnt);
 
-                //ValidaÃ§Ã£o da quantidade invalidas
+                //Validação da quantidade invalidas
                 if (qnt < 1)
                 {
                     qntInvalida = 1;
@@ -212,13 +223,13 @@ int pedido()
                 printf("1 - Sim\n");
                 printf("0 - Nao\n\n");
 
-                printf("Opcao: ");
+                printf("Opção: ");
                 scanf("%d", &novoLanche);
 
-                //ValidaÃ§Ã£o da opÃ§Ã£o
+                //Validação da opção
                 if (novoLanche != 0 && novoLanche != 1)
                 {
-                    printf("\nOpcao invalida:\n\n");
+                    printf("\nOpção invalida:\n\n");
                 }
 
                 //Fechamento do pedido
@@ -229,8 +240,8 @@ int pedido()
         system("cls");
         if (quantPedidos >= 5)
         {
-            printf(" *********************** PARABENS!!! ************************\n");
-            printf(" POR PEDIR 5 OU MAIS UNIDADES, VOCE GANHOU 10%% DE DESCONTO!!\n\n");
+            printf(" *********************** PARABÉNS!!! ************************\n");
+            printf(" POR PEDIR 5 OU MAIS UNIDADES, VOCÊ GANHOU 10%% DE DESCONTO!!\n\n");
             system("pause");
             system("cls");
         }
@@ -241,22 +252,22 @@ int pedido()
             printf("\t1 - Entrega\n");
             printf("\t0 - Retirada\n\n");
 
-            printf("Opcao: ");
+            printf("Opção: ");
             scanf("%d", &opcaoEntRet);
 
-            //ValidaÃ§Ã£o da opÃ§Ã£o
+            //Validação da opção
             if (opcaoEntRet != 0 && opcaoEntRet != 1)
             {
-                printf("\nOpcao invalida:\n\n");
+                printf("\nOpção invalida:\n\n");
             }
 
             if (opcaoEntRet == 1)
             {
                 system("cls");
-                printf("Informe o endereco: ");
+                printf("Informe o Endereço: ");
                 fflush(stdin);
                 scanf("%[^\n]s", end);
-                printf("Numero e complemento: ");
+                printf("Número e complemento: ");
                 fflush(stdin);
                 scanf("%[^\n]s", numEnd);
             }
@@ -264,9 +275,9 @@ int pedido()
         } while (opcaoEntRet != 0 && opcaoEntRet != 1);
 
         struct tm *data_hora_atual;             //ponteiro para struct que armazena data e hora
-        time_t segundos;                        //variÃ¡vel do tipo time_t para armazenar o tempo em segundos
+        time_t segundos;                        //variável do tipo time_t para armazenar o tempo em segundos
         time(&segundos);                        //obtendo o tempo em segundos
-        data_hora_atual = localtime(&segundos); //para converter de segundos para o tempo local, utilizamos a funÃ§Ã£o localtime
+        data_hora_atual = localtime(&segundos); //para converter de segundos para o tempo local, utilizamos a função localtime
 
         //imprimindo Recibo
         system("cls");
@@ -276,7 +287,7 @@ int pedido()
 
         //data
         printf("\n %d/", data_hora_atual->tm_mday);    //dia
-        printf("%d/", data_hora_atual->tm_mon + 1);    //mÃªs
+        printf("%d/", data_hora_atual->tm_mon + 1);    //mês
         printf("%d", data_hora_atual->tm_year + 1900); //ano
 
         //hora
@@ -285,15 +296,16 @@ int pedido()
         printf("%d\n\n", data_hora_atual->tm_sec); //segundo
 
         printf(" Nome do cliente: %s\n", nome);
+        printf(" CPF/CNPJ: %s\n", cpf);
         if (opcaoEntRet == 1)
         {
-            printf(" Endereco: %s\n", end);
+            printf(" Endereço: %s\n", end);
             printf(" N: %s\n", numEnd);
         }
         printf(" Total de unidades: %d\n", quantPedidos);
 
         printf("\n---------------------------------------------------");
-        printf("\n QTDE    DESCRICAO                        VALOR UN.");
+        printf("\n QTDE    DESCRIÇÃO                        VALOR UN.");
         printf("\n---------------------------------------------------");
         if (p1 == 1)
         {
@@ -391,7 +403,7 @@ int pedido()
         fprintf(recibo, "***************************************************\n");
         //data
         fprintf(recibo, "\n %d/", data_hora_atual->tm_mday);    //dia
-        fprintf(recibo, "%d/", data_hora_atual->tm_mon + 1);    //mÃªs
+        fprintf(recibo, "%d/", data_hora_atual->tm_mon + 1);    //mês
         fprintf(recibo, "%d", data_hora_atual->tm_year + 1900); //ano
 
         //hora
@@ -400,15 +412,16 @@ int pedido()
         fprintf(recibo, "%d\n\n", data_hora_atual->tm_sec); //segundo
 
         fprintf(recibo, " Nome do cliente: %s\n", nome);
+        fprintf(recibo," CPF/CNPJ: %s\n", cpf);
         if (opcaoEntRet == 1)
         {
-            fprintf(recibo, " Endereco: %s\n", end);
+            fprintf(recibo, " Endereço: %s\n", end);
             fprintf(recibo, " N: %s\n", numEnd);
         }
         fprintf(recibo, " Total de unidades: %d\n", quantPedidos);
 
         fprintf(recibo, "\n---------------------------------------------------");
-        fprintf(recibo, "\n QTDE    DESCRICAO                        VALOR UN.");
+        fprintf(recibo, "\n QTDE    DESCRIÇÃO                        VALOR UN.");
         fprintf(recibo, "\n---------------------------------------------------");
         if (p1 == 1)
         {
@@ -487,13 +500,10 @@ int pedido()
         fprintf(recibo, "\n Subtotal                                 R$ %.2f\n", totalPedido); //subtotal
         if (opcaoEntRet == 1)
         {
-            totalPedido = totalPedido + taxaEntrega;
             fprintf(recibo, " Taxa de entrega                          R$ %.2f\n", taxaEntrega); //taxa de entrega
         }
         if (quantPedidos >= 5)
         {
-            desconto = totalPedido * 0.1;
-            totalPedido = totalPedido - desconto;
             fprintf(recibo, " Desconto 10%%                           - R$ %.2f\n", desconto); //desconto
         }
         fprintf(recibo, "\n TOTAL                                    R$ %.2f\n", totalPedido); //total
@@ -515,12 +525,12 @@ int pedido()
             printf("1 - Atender novo cliente\n");
             printf("0 - Sair do Sistema\n\n");
 
-            printf("Opcao: ");
+            printf("Opção: ");
             scanf("%d", &novoPedido);
 
             if (novoPedido != 0 && novoPedido != 1)
             {
-                printf("Opcao Invalida");
+                printf("Opção Invalida");
             }
         } while (novoPedido != 0 && novoPedido != 1);
 

@@ -1,21 +1,19 @@
-***************************************************
+/n***************************************************
                     RECIBO - N 2 
 ***************************************************
 
- 12/11/2021  11:18:50
+ 23/11/2021  10:41:56
 
  Nome do cliente: Guilherme Gomes
- Endereco: Rua MilAo
- N: 51
- Total de unidades: 3
+ CPF/CNPJ: 345321222
+ Total de unidades: 2
 
 ---------------------------------------------------
- QTDE    DESCRICAO                        VALOR UN.
+ QTDE    DESCRIÇÃO                        VALOR UN.
 ---------------------------------------------------
- x2      X-Bacon                          R$ 9.00
- x1      Coca-Cola 2L                     R$ 12.00
+ x1      Hot-Dog                          R$ 6.00
+ x1      Suco de laranja 500ml            R$ 5.00
 ---------------------------------------------------
- Subtotal                                 R$ 37.50
- Taxa de entrega                          R$ 7.50
+ Subtotal                                 R$ 11,00
 
- TOTAL                                    R$ 45.00
+ TOTAL                                    R$ 11,00
