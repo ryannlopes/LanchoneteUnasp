@@ -4,7 +4,7 @@
 ### Requisitos
 O sistema deverá ter um menu principal com as opções de “Atender novo cliente” e “Sair”, Se a primeira opção for escolhida, o programa deverá receber o pedido do cliente, onde cada pedido poderá ser composto por vários lanches em quantidades especificadas. Assim, cada entrada será composta pelo nome do cliente, o código e a quantidade dos lanches desejados. 
 
-No final, deverá ser exibido o recibo do pedido do cliente, contendo o seu nome, endereço(Caso seja entrega), data de emissão e o valor total. Toda vez que estiver um novo recibo, o sistema deverá gerar um novo arquivo.txt.
+No final, deverá ser exibido o recibo do pedido do cliente, contendo o seu nome, CPF(Caso for informado), endereço(Caso seja entrega), data de emissão e o valor total. Toda vez que estiver um novo recibo, o sistema deverá gerar um novo arquivo.txt.
 
 O código 0 finaliza o pedido de cada cliente. Quando não existirem mais clientes para serem atendidos e o administrador desejar encerrar o sistema, antes de sair, o programa deverá exibir o valor total que foi recebido durante o dia.
 
